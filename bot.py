@@ -1,6 +1,6 @@
 from telegram.ext import ApplicationBuilder, CommandHandler
-from apscheduler.schedulers.asyncio import AsyncIOScheduler
-import os
+from apscheduler.schedulers. import asyncio
+    asyncio.run(main())
 from odds_fetcher import check_odds
 from news_fetcher import check_news
 
