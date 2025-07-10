@@ -20,5 +20,5 @@ async def main():
     # Käynnistä botti ja aloita kuuntelu
     await app.run_polling()
 
-if __name__ == "__main__":
+
    
