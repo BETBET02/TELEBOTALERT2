@@ -35,7 +35,7 @@ async def main():
 if __name__ == "__main__":
     import asyncio
     asyncio.run(main())
-🔹 odds_fetcher.py
+🔹 odds_fetcher
 python
 Kopioi
 Muokkaa
