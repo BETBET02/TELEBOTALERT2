@@ -1,19 +1,24 @@
 import os
-from telegram.ext import ApplicationBuilder, CommandHandler
+import asyncio
+from telegram import Update
+from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
+# Hae bot token ympäristömuuttujasta
 BOT_TOKEN = os.getenv("BOT_TOKEN")
-CHAT_ID = os.getenv("CHAT_ID")
 
-async def start(update, context):
-    await update.message.reply_text("Vedonlyöntibotti on käynnissä!")
+# /start komennon käsittelijä
+async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text("Hei! Vedonlyöntibotti on nyt käynnissä.")
 
 async def main():
+    # Luo botti-application
     app = ApplicationBuilder().token(BOT_TOKEN).build()
+
+    # Lisää handler /start-komennolle
     app.add_handler(CommandHandler("start", start))
 
+    # Käynnistä botti ja aloita kuuntelu
     await app.run_polling()
 
 if __name__ == "__main__":
-    loop = asyncio.get_event_loop()
-    loop.create_task(main())
-    loop.run_forever()
+    asyncio.run(main())
