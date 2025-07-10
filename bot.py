@@ -1,6 +1,8 @@
 from telegram.ext import ApplicationBuilder, CommandHandler
-from apscheduler.schedulers. import asyncio
-    asyncio.run(main())
+from apscheduler.schedulers.asyncio import AsyncIOScheduler
+import asyncio
+import os
+
 from odds_fetcher import check_odds
 from news_fetcher import check_news
 
@@ -33,20 +35,4 @@ async def main():
     await app.run_polling()
 
 if __name__ == "__main__":
-    import asyncio
     asyncio.run(main())
-python
-Kopioi
-Muokkaa
-# Dummy-toteutus – korvataan oikealla API-haulla myöhemmin
-def check_odds():
-    # Tänne tulee odds-api logiikka
-    # Palauta viesti (str) jos lähetetään, muuten None
-    return "[ODDS] (demo) Kerroin noussut NHL-pelissä 2.20 → 2.75 (+25%)"
-python
-Kopioi
-Muokkaa
-# Dummy-toteutus – korvataan oikealla NewsAPI-haulla myöhemmin
-def check_news():
-    # Tänne tulee uutisten haku ja suodatus
-    return "[UUTISET] (demo) Sidney Crosby OUT tänään loukkaantumisen vuoksi."
